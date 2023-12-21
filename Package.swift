@@ -6,7 +6,7 @@ let package = Package(
   name: "Swifter",
 
   products: [
-    .library(name: "Swifter", targets: ["Swifter"]),
+    .library(name: "Swifter", type: .dynamic, targets: ["Swifter"]),
     .executable(name: "SwifterExample", targets: ["SwifterExample"])
   ],
 
