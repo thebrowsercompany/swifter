@@ -29,9 +29,15 @@ extension String {
             fclose(pointer)
         }
 
+        #if os(Windows)
         public func seek(_ offset: Int32) -> Bool {
             return (fseek(pointer, offset, SEEK_SET) == 0)
         }
+        #else
+        public func seek(_ offset: Int) -> Bool {
+            return (fseek(pointer, offset, SEEK_SET) == 0)
+        }
+        #endif
 
         public func read(_ data: inout [UInt8]) throws -> Int {
             if data.count <= 0 {
